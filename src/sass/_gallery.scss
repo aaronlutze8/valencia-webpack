@@ -12,31 +12,39 @@
   position: relative;
   .heading {
     position: absolute;
-    left: 50%;
+    left: 0%;
     transform: rotate(-5deg);
     width: 100%;
     top: 30%;
     white-space: nowrap;
     z-index: 2;
-    align-items: center;
+    pointer-events: none;
     span {
       font-size: 8rem;
       font-weight: 400;
       display: inline-block;
       animation: marquee 15s linear infinite;
-      //   animation-delay: 4s;
     }
+    pointer-events: none;
   }
 }
 
 .swiper-container {
-  margin-top: 32px;
   cursor: grab;
-
+  margin-left: 3rem;
+  @include md {
+    margin-left: 0;
+  }
+  .swiper-wrapper {
+    max-height: 80vh;
+    @include md {
+      margin-left: 2rem;
+    }
+  }
   .swiper-slide {
     display: flex;
     flex-direction: column;
-    // padding: 0 20px;
+    max-height: 80vh;
     &:nth-child(odd) {
       flex-direction: column-reverse;
     }
@@ -47,9 +55,10 @@
       }
     }
     @include md {
-      &:first-of-type {
-        display: none;
-      }
+      //   &:first-of-type {
+      //     display: none;
+      //   }
+      padding-right: 2rem;
     }
     @include sm {
       &:last-of-type {
@@ -60,12 +69,14 @@
       width: 100%;
       object-fit: contain;
       object-position: left;
+      max-height: 80vh;
     }
     .gallery-text {
       position: absolute;
       top: 100px;
-      right: 40px;
-      font-size: 12px;
+      //   right: 40px;
+      left: 40px;
+      font-size: 0.75rem;
       text-align: left;
       text-transform: uppercase;
       max-width: 90px;
@@ -77,7 +88,9 @@
   }
   .swiper-button-prev,
   .swiper-button-next {
-    // color: $white;
+    min-width: 60px;
+    min-height: 60px;
+    color: $white;
     &:hover {
       color: $lime-green;
     }
@@ -86,16 +99,18 @@
 
 .gallery-two {
   position: relative;
-  z-index: 20;
+  z-index: 10;
   .swiper-outer {
     max-width: 80%;
     margin: 0 auto;
+    @include md {
+      max-width: 100%;
+    }
   }
   .swiper-container {
     overflow: hidden;
-    margin-top: 0;
+    margin: 0;
     .swiper-wrapper {
-      padding-left: 32px;
       .swiper-slide {
         padding: 0;
         &:first-of-type {
@@ -109,16 +124,20 @@
     max-height: 640px;
     .gallery-inner {
       display: flex;
-      .content,
-      .img-outer {
-        max-width: 50%;
+      justify-content: space-between;
+      .content {
+        @include md {
+          max-width: 50%;
+        }
       }
       .img-outer {
-        background-size: contain;
-        background-position: center center;
+        background-size: cover;
+        background-position: center 10%;
         width: 100%;
+        max-width: 50%;
         height: 100%;
-        padding-bottom: 50%;
+        background-repeat: no-repeat;
+        min-height: 600px;
         &.img1 {
           background-image: url("../assets/gallery-two/gallery-two-parka.jpg");
         }
