@@ -22,8 +22,8 @@ dummyimg.onload = function () {
   init();
   animate();
 };
+
 dummyimg.src = img.src;
-dummyimg.classList.add("img1-pos");
 
 function init() {
   console.log(texture);
@@ -36,6 +36,7 @@ function init() {
   camera.position.z = 0.5;
 
   scene = new THREE.Scene();
+  //   scene.background = new THREE.Color(0xff0000, 0);
 
   //   geometry = new THREE.PlaneGeometry(0.45, 0.3);
   geometry = new THREE.PlaneGeometry(0.6, 0.6);
@@ -45,10 +46,18 @@ function init() {
   mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
 
-  renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.outputEncoding = THREE.sRGBEncoding;
-  document.body.appendChild(renderer.domElement);
+
+  renderer.domElement.classList.add("img-texture");
+
+  //   set the canvas to clear background
+  renderer.setClearColor(0xffffff, 0);
+
+  let newDOM = document.querySelector(".hero .img-outer");
+  newDOM.appendChild(renderer.domElement);
+  img.style.display = "none";
 
   // post processing
   composer = new EffectComposer(renderer);
@@ -87,7 +96,6 @@ function init() {
             gl_FragColor = color;
         }`,
   };
-
   customPass = new ShaderPass(myEffect);
   customPass.renderToScreen = true;
   composer.addPass(customPass);
