@@ -9,12 +9,16 @@ import "./js/konami";
 import "./js/nav";
 import "./js/mouse-move-shadow";
 import "./js/three";
+import "./js/text-cycle";
+
+import video from "./assets/gold-lamb.mp4";
+// console.log(video);
 
 // Add in wacky console message
-// console.log(
-//   "%c This is an experimentation site of Joshua Fielding, a frontend developer, reach out at josh.e.fielding@gmail.com",
-//   "font-size: 50px;background:#00ff00;text-shadow:10px 10px 0 blue"
-// );
+console.log(
+  "%c This is an experimentation site of Joshua Fielding, a frontend developer, reach out at josh.e.fielding@gmail.com",
+  "font-size: 50px;background:#00ff00;text-shadow:10px 10px 0 blue"
+);
 
 // Future Scroll
 const map = (x, a, b, c, d) => ((x - a) * (d - c)) / (b - a) + c;
@@ -53,3 +57,13 @@ new SmoothScrollingArticle({
     document.querySelector(".canvas-wrapper"),
   ],
 });
+
+// show hide screen if small screen size
+const screenWidth = window.innerWidth;
+const mainScreen = document.getElementById("main");
+const mobileScreen = document.querySelector(".mobile-message");
+mobileScreen.style.display = "none";
+if (screenWidth <= 900) {
+  mainScreen.style.display = "none";
+  mobileScreen.style.display = "block";
+}

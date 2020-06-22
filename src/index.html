@@ -12,6 +12,7 @@
     <meta property="og:image:height" content="1281" />
     <meta property="og:image" content="./assets/danteum-social-share.jpg" />
     <meta property="og:image:secure_url" content="./assets/danteum-social-share.jpg" />
+    <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css" />
     <script src="https://unpkg.com/swiper/js/swiper.js"></script>
@@ -22,23 +23,17 @@
     <script src="https://kit.fontawesome.com/eb605637ff.js" crossorigin="anonymous"></script>
 </head>
 
-<!-- TODO: 
-    - Get this text ripple effect working on a section - https://omotesando.eu/
-    - Add in a horizontal scroll page, pretend interview with Ivan and Elena - https://collection-wakawaka.world/interview
-    - Get this effect working for the home page - http://yaleschoolofart.org/openstudios2019/
-    - Try and get this moveable text effect working on a child page - https://www.nytimes.com/interactive/2020/02/27/opinion/2019-year-in-illustration.html
-    - Like this super minimal grid text change layout - https://www.samyrio.fr/
--->
-
-
-
 <body>
-    <article>
+    <div class="mobile-message">
+        <h1>
+            Please view page at screen size >= 900px
+        </h1>
+    </div>
+    <article id="main">
         <div class="scrolling-area">
             <div class="canvas-wrapper">
                 <canvas class="cursor cursor--canvas"></canvas>
             </div>
-            <!-- <canvas id="three-canvas"></canvas> -->
             <!-- nav -->
             <nav>
                 <div class="inner">
@@ -49,11 +44,11 @@
                     </div>
                     <div class="middle" id="navigation">
                         <a class="smooth-nav-link" href="#lookbook">lookbook</a>
-                        <a href="interview.html">interview</a>
-                        <a href="#">contact</a>
+                        <a class="smooth-nav-link" href="#collage">collage</a>
+                        <a class="smooth-nav-link" href="#contact">contact</a>
                     </div>
                     <div class="right">
-                        <p class="brand-text">COLLECTION N°16</p>
+                        <p>COLLECTION N°16</p>
                     </div>
                 </div>
             </nav>
@@ -63,12 +58,14 @@
                     <div class="heading-wrapper">
                         <div class="heading">
                             <h1 id="heading-move">
-                                DANTEUM
+                                D
+                                <span class="text-cycle">A</span>
+                                <span class="sub">NTEU</span>
+                                <span class="text-cycle text-cycle-second">M</span>
                             </h1>
                         </div>
                     </div>
                     <div class="img-outer">
-                        <!-- <img src="assets/hero/K1.jpg" loading="lazy" /> -->
                         <img src="assets/hero/K1.jpg" loading="lazy" id="texture" />
                     </div>
                 </div>
@@ -177,10 +174,8 @@
                     <div class="swiper-arrows-wrapper">
                         <div class="swiper-arrows-inner">
                             <div class="swiper-button-prev">
-                                <!-- <i class="fas fa-long-arrow-alt-left"></i> -->
                             </div>
                             <div class="swiper-button-next">
-                                <!-- <i class="fas fa-long-arrow-alt-right"></i> -->
                             </div>
                         </div>
                     </div>
@@ -592,7 +587,7 @@
             </section>
 
             <!-- collage no16 -->
-            <section class="chapter collage padding">
+            <section class="chapter collage padding" id="collage">
                 <div class="copy parallax-scroll">
                     <h3 class="text-shadow">
                         Here is a collage we created during N°16
@@ -684,7 +679,7 @@
                                                 Danteum x Wikipedia
                                             </p>
                                             <p class="copy">
-                                                Long sleeve cotton hoodie in black.  Drawstring at hood, rib knit cuffs,
+                                                Long sleeve cotton hoodie in black. Drawstring at hood, rib knit cuffs,
                                                 and hem. Kangaroo pocket at waist. Oversize fit.
                                             </p>
                                             <p class="copy">
@@ -781,6 +776,30 @@
                     </div>
                 </div>
             </section>
+
+            <!-- contact -->
+            <section class="chapter contact padding" id="contact">
+                <div class="copy parallax-scroll">
+                    <p class="small-heading text-shadow">
+                        CONTACT
+                    </p>
+                    <p class="text-shadow">
+                        We welcome collaboration of all shapes and sizes, especially those that will make us heaps of
+                        raw $$$.
+                        Reach out via <a href="mailto:mail@gmail.com">email</a> or call us at <a
+                            href="tel:+61423173456">0423173456.</a>
+                    </p>
+                    <p class="text-shadow">
+                        We are also accepting internship applications for 2021. Please send us your portfolio and
+                        a brief introductory message at <a href="mailto:mail@gmail.com">internship@danteum.</a>
+                    </p>
+                </div>
+                <div class="video-container">
+                    <video src="gold-lamb.mp4" autoplay="true" loop="true">
+                    </video>
+                </div>
+            </section>
+
     </article>
 </body>
 

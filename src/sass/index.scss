@@ -5,16 +5,17 @@
 @import "menu";
 @import "common";
 @import "gallery";
-@import "interview";
 @import "canvas";
 @import "three";
 
+* {
+  box-sizing: border-box;
+}
+
 body {
-  // font-family: Helvetica Neue;
   font-family: "Sil";
   font-weight: 400;
   font-size: 1.25rem;
-  //   background-color: $black;
   background-color: #000000;
   color: whitesmoke;
   overflow-x: hidden;
@@ -61,11 +62,4 @@ p {
 
 .parallax-scroll {
   opacity: 0;
-  //   opacity: 1;
-}
-
-.img1-pos {
-  position: absolute;
-  top: 10em;
-  left: 5em;
 }
